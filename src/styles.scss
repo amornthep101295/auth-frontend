@@ -1,0 +1,59 @@
+/* นำเข้า Material Theme พื้นฐาน */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+:root {
+  /* กำหนดสีหลักของโปรเจกต์ */
+  --primary-green: #005A36;
+  --primary-gold: #A47B46;
+
+  /* บังคับสีช่อง Input ของ Material ให้เป็นสีเขียวเมื่อถูกโฟกัส */
+  --mdc-outlined-text-field-focus-outline-color: var(--primary-green);
+  --mdc-outlined-text-field-focus-label-text-color: var(--primary-green);
+}
+
+html, body { 
+  height: 100%; 
+  margin: 0; 
+  font-family: 'Roboto', "Helvetica Neue", sans-serif;
+  background-color: #f4f6f8; /* สีพื้นหลังให้อ่อนลงเพื่อให้ Card โดดเด่น */
+}
+
+/* ตกแต่งแถบ Header ด้านบน */
+.main-header {
+  background-color: var(--primary-green);
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  border-bottom: 2px solid #003d24;
+  margin-bottom: 30px;
+}
+
+.main-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* คลาสจัดกึ่งกลางหน้าจอ */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  padding: 20px;
+}
+
+/* สไตล์กล่อง Card ที่จะใช้ทั้งหน้า Login และ Register */
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ให้ช่อง Input ขยายเต็มพื้นที่ */
+.full-width {
+  width: 100%;
+  margin-bottom: 10px;
+}

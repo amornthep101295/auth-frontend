@@ -1,0 +1,52 @@
+<div class="center-container">
+  <mat-card class="auth-card">
+    <mat-card-header style="justify-content: center; margin-bottom: 20px;">      
+      <mat-card-title style="color: #005A36; font-size: 24px;">สมัครสมาชิก</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>User</mat-label>
+          <input matInput formControlName="username">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button" style="color: #005A36;">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmPassword">
+          <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" type="button" style="color: #005A36;">
+            <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-error *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched" style="text-align: center; margin-bottom: 15px;">
+          * Password และ Confirm Password ไม่ตรงกัน
+        </mat-error>
+
+        <div style="margin-top: 10px;">
+          <button mat-flat-button type="submit" class="full-width" 
+                  [disabled]="registerForm.invalid"
+                  [ngStyle]="{'background-color': registerForm.invalid ? '#e0e0e0' : '#A47B46', 'color': registerForm.invalid ? '#9e9e9e' : 'white'}"
+                  style="height: 48px; font-size: 16px;">
+            ยืนยันการสมัคร
+          </button>
+        </div>
+
+        <div style="margin-top: 15px;">
+          <button mat-stroked-button type="button" class="full-width" routerLink="/"
+                  style="height: 48px; font-size: 16px; color: #005A36; border-color: #005A36;">
+            ย้อนกลับ
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
